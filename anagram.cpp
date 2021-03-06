@@ -12,11 +12,25 @@ void anagram(std::string one, std::string two) {
                 }
             }
         }
-        //for(int k = 0; k < similarLetters.size(); k++) {
-          //  cout << similarLetters[k]; 
-        //}
+        
+        for(int k = 0; k < similarLetters.size(); k++) {
+            cout << similarLetters[k]; 
+        }
+        bool anagram;
         if(similarLetters.size() == one.length()) {
-            cout << "Is anagram";
+            for(int m =0; m<one.length();m++) {
+                if(similarLetters[m] != one[m]) {
+                    cout << "Not anagram";
+                    anagram = false;
+                    break;
+                }
+                else{
+                    anagram=true;
+                }
+            }
+            if(anagram==true) {
+                cout << "Is anagram";
+            }
         }
         else{
             cout << "Not anagram";
@@ -27,7 +41,13 @@ void anagram(std::string one, std::string two) {
     }
 }
 int main() {
-    cout << " " << endl;
-    anagram("ggrrrgegr", "rgegrrrgg");
+    cout << endl;
+    string one;
+    string two;
+    cout << "Enter a word: ";
+    cin >> one;
+    cout << "Enter a second word: ";
+    cin >> two;
+    anagram(one, two);
 
 }
